@@ -1,8 +1,13 @@
 package com.android.retrofit
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.android.retrofit.data.AppContainer
+import com.android.retrofit.data.DefaultAppContainer
 
-@HiltAndroidApp
-class MainApplication : Application() {
+class MainApplication: Application() {
+    lateinit var container: AppContainer
+    override fun onCreate() {
+        super.onCreate()
+        container = DefaultAppContainer()
+    }
 }
